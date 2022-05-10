@@ -1,21 +1,21 @@
-import React from "react";
-import "./App.css";
-import logo from "./logo.svg";
+import { Container } from "@mui/material"
+import React, { useCallback } from "react"
+import "./App.css"
+import logo from "./assets/card_media_view.png"
+import CustomCard from "./CustomCard"
 
 function App() {
-  console.log('test commit');
-  
+  const checkStatus = useCallback((status: boolean) => {
+    console.log("status", status)
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <Container>
+        <CustomCard initialState label={"Flood zone 3"} mediaContent={logo} checkStatus={checkStatus} />
+        <CustomCard label={"Flood zone 3"} mediaContent={logo} />
+        <CustomCard label={"Flood zone 3"} mediaContent={logo} />
+      </Container>
     </div>
   )
 }
