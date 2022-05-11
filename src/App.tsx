@@ -2,7 +2,8 @@ import { Container } from "@mui/material"
 import React, { useCallback } from "react"
 import "./App.css"
 import logo from "./assets/card_media_view.png"
-import CustomCard from "./CustomCard"
+import SelectCard from "./components/SelectCard"
+import { CardState } from "./shared/types"
 
 function App() {
   const checkStatus = useCallback((status: boolean) => {
@@ -12,9 +13,9 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <CustomCard initialState label={"Flood zone 3"} mediaContent={logo} checkStatus={checkStatus} />
-        <CustomCard label={"Flood zone 3"} mediaContent={logo} />
-        <CustomCard label={"Flood zone 3"} mediaContent={logo} />
+        <SelectCard cardState={CardState.SELECTED} label={"Flood zone 3"} image={logo} onSelect={checkStatus} />
+        <SelectCard label={"Flood zone 3"} image={logo} />
+        <SelectCard label={"Flood zone 3"} image={logo} />
       </Container>
     </div>
   )
