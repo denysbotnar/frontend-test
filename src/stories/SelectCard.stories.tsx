@@ -2,13 +2,12 @@ import { ComponentStory, Meta } from "@storybook/react"
 import logo from "../assets/card_media_view.png"
 import SelectCard from "../components/SelectCard"
 import CustomMDXDocumentation from "../shared/SelectCard.mdx"
-import { CardState } from "../shared/types"
 
 export default {
   component: SelectCard,
   title: "SelectCard",
   argTypes: {
-    backgroundColor: { control: "color" }
+    backgroundColor: { control: "#E5E5E5" }
   },
   parameters: {
     docs: {
@@ -21,21 +20,21 @@ const Template: ComponentStory<typeof SelectCard> = (args: any) => <SelectCard {
 
 export const Selected = Template.bind({})
 Selected.args = {
-  cardState: CardState.SELECTED,
+  selected: true,
   label: "Flood zone 3",
   image: logo
 }
 
 export const Hover = Template.bind({})
 Hover.args = {
-  cardState: CardState.HOVER,
+  selected: false,
   label: "Flood zone 3",
   image: logo
 }
 
 export const Unselected = Template.bind({})
 Unselected.args = {
-  cardState: CardState.UNSELECTED,
+  selected: false,
   label: "Flood zone 3",
   image: logo
 }
